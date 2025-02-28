@@ -17,7 +17,7 @@ function Login() {
 
     const onSubmit = async (data) => {
         try {
-            const response = await axios.post("https://markify-rpl8.onrender.com/login", data, {
+            const response = await axios.post("https://markify2.onrender.com/login", data, {
                 withCredentials: true, // Allows cookies to be sent
             });
             

@@ -16,7 +16,7 @@ function SignUp() {
     const onSubmit = async (data) => {
         console.log(data);
         try {
-            const response = await axios.post("https://markify-rpl8.onrender.com/register", {
+            const response = await axios.post("https://markify2.onrender.com/register", {
                 name: data.name,
                 email: data.email,
                 password: data.password

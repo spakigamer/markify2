@@ -34,7 +34,7 @@ const MarkdownEditor = () => {
                 if (!storedData) return;
 
                 const parsedData = JSON.parse(storedData);
-                const response = await axios.post('https://markify-rpl8.onrender.com/search', parsedData,{headers: {
+                const response = await axios.post('https://markify2.onrender.com/search', parsedData,{headers: {
                     'Authorization': `Bearer ${token}`, // ✅ Send token in headers
                     'Content-Type': 'application/json'
                 }});
@@ -77,14 +77,14 @@ const MarkdownEditor = () => {
         try {
             let result;
             if (updatedData.id == 0) {
-                result = await axios.post("https://markify-rpl8.onrender.com/add", updatedData, {
+                result = await axios.post("https://markify2.onrender.com/add", updatedData, {
                     headers: {
                         'Authorization': `Bearer ${token}`, // ✅ Send token in headers
                         'Content-Type': 'application/json'
                     }
                 });
             } else {
-                result = await axios.put("https://markify-rpl8.onrender.com/add", updatedData, {
+                result = await axios.put("https://markify2.onrender.com/add", updatedData, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json'
