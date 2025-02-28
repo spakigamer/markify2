@@ -15,7 +15,6 @@ import MongoStore from "connect-mongo";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
-const saltRounds = 10;
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {
