@@ -81,7 +81,7 @@ const authenticateToken = (req, res, next) => {
 };
 
 // Passport Strategies
-passport.use(new LocalStrategy({ usernameField: 'email', passwordField: 'password' }, async (email, password, cb) => {
+passport.use("local",new LocalStrategy({ usernameField: 'email', passwordField: 'password' }, async (email, password, cb) => {
   try {
     const user = await User.findOne({ email });
     if (!user) return cb(null, false, { message: 'User not found' });
@@ -95,7 +95,7 @@ passport.use(new LocalStrategy({ usernameField: 'email', passwordField: 'passwor
   }
 }));
 
-passport.use(new GoogleStrategy({
+passport.use("google",new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   callbackURL: 'http://localhost:3000/auth/google/secrets',
