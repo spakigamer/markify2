@@ -17,6 +17,7 @@ function Login() {
 
     const onSubmit = async (data) => {
         try {
+            data=JSON.parse(data)
             const response = await axios.post("https://markify2.onrender.com/login", data, {
                 withCredentials: true, // Allows cookies to be sent
             });
