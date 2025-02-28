@@ -40,7 +40,12 @@ const User = mongoose.model('User', userSchema);
 const Note = mongoose.model('Note', noteSchema);
 
 // Middleware
-app.use(cors({ origin: '*' }));
+app.use(cors({
+      origin:"*",  // Allow requests from your frontend
+      methods: 'GET,POST,PUT,DELETE',
+      credentials: true  // Allow cookies and sessions
+    }));
+    
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
