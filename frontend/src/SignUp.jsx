@@ -6,7 +6,9 @@ import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import './Contact.css';
 
+
 function SignUp() {
+    const back=import.meta.env.VITE_API_BACK;
     const { register, handleSubmit, formState: { errors }, getValues } = useForm();
 
     const handleGoogleLogin = async () => {
@@ -16,7 +18,7 @@ function SignUp() {
     const onSubmit = async (data) => {
         console.log(data);
         try {
-            const response = await axios.post("https://markify2.onrender.com/register", {
+            const response = await axios.post(`${back}/register`, {
                 name: data.name,
                 email: data.email,
                 password: data.password

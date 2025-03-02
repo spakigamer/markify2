@@ -4,14 +4,16 @@ import Footer from "./Navbar/footer";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
+
 function Contact() {
+    const back=import.meta.env.VITE_API_BACK;
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [serverResponse, setServerResponse] = useState(null);
 
     // Form submit function
     const onSubmit = async (formData) => {
         try {
-            const response = await axios.post('https://markify2.onrender.com/contact', formData);
+            const response = await axios.post(`${back}//contact`, formData);
             setServerResponse(response.data.message);
         } catch (error) {
             console.error("Error submitting form:", error);

@@ -6,6 +6,7 @@ import Create from "./Create";
 import axios from "axios";
 
 function Dashboard() {
+    const back=import.meta.env.VITE_API_BACK;
     const [notes, setNotes] = useState([]); // Store notes
     const [showCreate, setShowCreate] = useState(false); // Controls the modal visibility
 
@@ -26,7 +27,7 @@ function Dashboard() {
         }
 
         try {
-            const response = await axios.get("https://markify2.onrender.com/get-data", {
+            const response = await axios.get(`${back}//get-data`, {
                 headers: {
                     'Authorization': `Bearer ${token}` // ✅ Send token in headers
                 }
@@ -42,7 +43,7 @@ function Dashboard() {
     const logout = async () => {
         localStorage.removeItem("token");
         window.location.href = "/login";
-        await axios.get('https://markify2.onrender.com/logout');
+        await axios.get(`${back}//logout`);
     };
 
     return (

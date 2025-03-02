@@ -7,17 +7,20 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Contact.css";
 
+
 function Login() {
+    const back=import.meta.env.VITE_API_BACK;
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
 
     const handleGoogleLogin = async () => {
-        window.location.href = "https://markify2.onrender.com/auth/google";
+        window.location.href = `${back}//auth/google`;
     };
 
     const onSubmit = async (data) => {
         try {
-            const response = await axios.post("https://markify2.onrender.com/login", data, {
+            console.log(`${back}/login`)
+            const response = await axios.post(`${back}/login`, data, {
                 withCredentials: true, // Allows cookies to be sent
             });
             

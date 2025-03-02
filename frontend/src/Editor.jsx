@@ -6,7 +6,9 @@ import { useNavigate } from "react-router-dom";
 import './Editor.css'
 import axios from "axios";
 
+
 const MarkdownEditor = () => {
+    const back=import.meta.env.VITE_API_BACK;
     const [markdown, setMarkdown] = useState("");
     const [convertedHtml, setConvertedHtml] = useState("");
     const previewRef = useRef(null);
@@ -33,7 +35,7 @@ const MarkdownEditor = () => {
                 if (!storedData) return;
 
                 const parsedData = JSON.parse(storedData);
-                const response = await axios.post('https://markify2.onrender.com/search', parsedData,{headers: {
+                const response = await axios.post(`${back}//search`, parsedData,{headers: {
                     'Authorization': `Bearer ${token}`, // ✅ Send token in headers
                     'Content-Type': 'application/json'
                 }});
@@ -76,14 +78,14 @@ const MarkdownEditor = () => {
         try {
             let result;
             if (updatedData.id == 0) {
-                result = await axios.post("https://markify2.onrender.com/add", updatedData, {
+                result = await axios.post(`${back}//add`, updatedData, {
                     headers: {
                         'Authorization': `Bearer ${token}`, // ✅ Send token in headers
                         'Content-Type': 'application/json'
                     }
                 });
             } else {
-                result = await axios.put("https://markify2.onrender.com/add", updatedData, {
+                result = await axios.put(`${back}//add`, updatedData, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json'

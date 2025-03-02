@@ -40,12 +40,17 @@ const User = mongoose.model('User', userSchema);
 const Note = mongoose.model('Note', noteSchema);
 
 // Middleware
+const allowedOrigins = [
+  'http://localhost:5173', // Local development
+  'https://markify2.onrender.com', // Deployed frontend
+  "https://markify2.vercel.app"
+];
+
 app.use(cors({
-      origin:"*",  // Allow requests from your frontend
-      methods: 'GET,POST,PUT,DELETE',
-      credentials: true  // Allow cookies and sessions
-    }));
-    
+  origin: allowedOrigins,
+  methods: 'GET,POST,PUT,DELETE',
+  credentials: true
+}));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
