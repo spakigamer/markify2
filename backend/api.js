@@ -96,9 +96,7 @@ passport.use("local",new LocalStrategy({ usernameField: 'email', passwordField: 
     const user = await User.findOne({ email });
     if (!user) return cb(null, false, { message: 'User not found' });
 
-    const valid = await bcrypt.compare(password, user.password,(err,result)=>{
-      return  result
-    });
+    const valid = await bcrypt.compare(password, user.password);
     return cb(null, valid ? user : false, { message: 'Invalid credentials' });
   } catch (err) {
     return cb(err);
