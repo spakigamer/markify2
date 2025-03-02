@@ -10,7 +10,7 @@ function SignUp() {
     const { register, handleSubmit, formState: { errors }, getValues } = useForm();
 
     const handleGoogleLogin = async () => {
-        window.location.href = "https://markify-rpl8.onrender.com/auth/google";
+        window.location.href = "https://markify2.onrender.com/auth/google";
     };
 
     const onSubmit = async (data) => {
