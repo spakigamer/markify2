@@ -13,7 +13,7 @@ function Contact() {
     // Form submit function
     const onSubmit = async (formData) => {
         try {
-            const response = await axios.post(`${back}//contact`, formData);
+            const response = await axios.post(`${back}/contact`, formData);
             setServerResponse(response.data.message);
         } catch (error) {
             console.error("Error submitting form:", error);

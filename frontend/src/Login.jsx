@@ -14,7 +14,7 @@ function Login() {
     const navigate = useNavigate();
 
     const handleGoogleLogin = async () => {
-        window.location.href = `${back}//auth/google`;
+        window.location.href = `${back}/auth/google`;
     };
 
     const onSubmit = async (data) => {

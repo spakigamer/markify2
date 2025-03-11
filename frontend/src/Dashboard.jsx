@@ -27,7 +27,7 @@ function Dashboard() {
         }
 
         try {
-            const response = await axios.get(`${back}//get-data`, {
+            const response = await axios.get(`${back}/get-data`, {
                 headers: {
                     'Authorization': `Bearer ${token}` // ✅ Send token in headers
                 }
@@ -43,7 +43,7 @@ function Dashboard() {
     const logout = async () => {
         localStorage.removeItem("token");
         window.location.href = "/login";
-        await axios.get(`${back}//logout`);
+        await axios.get(`${back}/logout`);
     };
 
     return (
